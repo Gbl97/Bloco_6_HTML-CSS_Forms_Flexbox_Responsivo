@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Exercícios do Bloco 6.1 - Forms</title>
+</head>
+<body>
+    <!-- Requisito 1 -->
+    <form action="" method="get" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Dados Pessoais:</legend>
+            <label for="nome">Nome:</label>
+            <input maxlength="40" type="text" name="full-name" id="nome" required>
+            <br>
+            <label for="email">Email:</label>
+            <input maxlength="50" type="text" name="e-mail" id="email" required>
+            <br>
+            <label for="cpf">CPF:</label>
+            <input maxlength="11" type="text" name="cpf" id="cpf" required>
+            <br>
+            <label for="endereco">Endereço:</label>
+            <input maxlength="200" type="text" name="endereco" id="endereco" required>
+            <br>
+            <label for="cidade">Cidade:</label>
+            <input maxlength="28" type="text" name="cidade" id="cidade" required>
+            <br>
+            <label for="estados">Estado:</label>
+            <select name="estados" id="estados" required></select>
+            <br>
+            <label for="complemento">Casa</label>
+            <input type="radio" name="complemento" id="complemento">
+            <label for="complemento">Aparatamento</label>
+            <input type="radio" name="complemento" id="complemento">
+        </fieldset>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
