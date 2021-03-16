@@ -40,27 +40,53 @@ function createStates(){
 };
 createStates();
 
-function AnalyzingDate() {
-  const getData = document.getElementById('data');
-  let data = getData.value;
-  const userData = ValidatingDate(data);
-
-  if (!userData && data.length) {
-      getData.value = '';
-      alert('data invalida');
-      return false;
-  }
-  return userData;
-};
-
 function ValidatingDate(data) {
-    let arrayData = data.split('/');
-    let dia = parseInt(arrayData[0]);
-    let mes = parseInt(arrayData[1]);
-    let ano = parseInt(arrayData[2]);
+    if (data.indexOf('/') === 2 || data.indexOf('/') === 5) {
+     const dia = data.substr(0, 2);
+     console.log(dia);
+     const mes = data.substr(3, 2);
+     console.log(mes);
+     const ano = data.substr(6);
+     console.log(ano);
 
-    if ((dia > 0 && dia <= 31) && (mes > 0 && mes <= 12) && (ano > 0 && ano.length === 4)) {
-       return true;
+     if ((dia > 0 && dia <= 31) && (mes > 0 && mes <= 12) && (ano > 0 && ano.length === 4)) {
+        return true;
+     }
+     return false;
     }
-    return false;
 };
+
+function AnalyzingDate() {
+    const getData = document.querySelector('#data-text');
+    let data = getData.value;
+    const userData = ValidatingDate(data);
+  
+    if (!userData && data.length) {
+        getData.value = '';
+        alert('data invalida');
+        return false;
+    }
+    return userData;
+  };
+
+// Requisito 3 - Interropendo o fluxo automático do Form
+function checkingForms(event) {
+  event.preventDefault();
+  const getForms = document.querySelectorAll('input');
+
+  for (let index = 0; index < getForms.length; index += 1) {
+    if (getForms[index].type === 'radio' && !getForms[index].checked) {
+        continue;
+    }
+    const userForms = getForms[index].value;
+    const userData = document.querySelector('.formulario');
+    if (AnalyzingDate()) {
+        const div = document.createElement('div');
+        div.className = 'div-forms';
+        div.innerHTML = userForms;
+        userData.appendChild(div);
+    }
+  }
+}
+const btnSubmit = document.querySelector('.btn-envio');
+btnSubmit.addEventListener('click',checkingForms);
