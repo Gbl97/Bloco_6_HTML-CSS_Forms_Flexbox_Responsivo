@@ -88,5 +88,22 @@ function checkingForms(event) {
     }
   }
 }
+
+//Requisito 4
+function clearForms() {
+    const userForms = document.querySelectorAll('input');
+    const textArea = document.querySelector('#curriculo');
+    const div = document.querySelectorAll('.div-forms');
+
+    for (let index = 0; index < userForms.length && index < div.length; index += 1) {
+       const inputForms = userForms[index];
+       inputForms.value = '';
+       textArea.value = '';
+       div[index].innerText = '';
+    }
+}
+
 const btnSubmit = document.querySelector('.btn-envio');
+const btnClear = document.querySelector('.btn-limpar');
 btnSubmit.addEventListener('click',checkingForms);
+btnClear.addEventListener('click', clearForms);
