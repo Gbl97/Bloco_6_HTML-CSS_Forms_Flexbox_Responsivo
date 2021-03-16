@@ -33,7 +33,27 @@
             <label for="complemento">Aparatamento</label>
             <input type="radio" name="complemento" id="complemento">
         </fieldset>
+        <br>
+        <!-- Requisito 2 -->
+        <fieldset>
+            <legend>Dados do Último Emprego:</legend>
+            <label for="curriculo">Resumo do Currículo:</label>
+            <textarea maxlength="1000" name="curriculo" id="curriculo" cols="6" rows="3" required></textarea>
+            <br>
+            <label for="cargo">Cargo:</label>
+            <input maxlength="40" type="text" name="cargo" id="cargo">
+            <br>
+            <label for="descricao">Descrição do Cargo:</label>
+            <input maxlength="500" type="text" name="descricao" id="descricao">
+            <br>
+            <label for="data">Data de Início:</label>
+            <input type="text" id="data" required>
+        </fieldset>
+        <!-- Requisito 3 -->
+        <button class="btn-envio" type="button">Enviar</button>
+        <button class="btn-limpar" type="button">Limpar</button>
     </form>
+    <section class="formulario"></section>
     <script src="script.js"></script>
 </body>
 </html>

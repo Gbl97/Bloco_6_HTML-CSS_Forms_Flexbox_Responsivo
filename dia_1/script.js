@@ -39,3 +39,28 @@ function createStates(){
     };
 };
 createStates();
+
+function AnalyzingDate() {
+  const getData = document.getElementById('data');
+  let data = getData.value;
+  const userData = ValidatingDate(data);
+
+  if (!userData && data.length) {
+      getData.value = '';
+      alert('data invalida');
+      return false;
+  }
+  return userData;
+};
+
+function ValidatingDate(data) {
+    let arrayData = data.split('/');
+    let dia = parseInt(arrayData[0]);
+    let mes = parseInt(arrayData[1]);
+    let ano = parseInt(arrayData[2]);
+
+    if ((dia > 0 && dia <= 31) && (mes > 0 && mes <= 12) && (ano > 0 && ano.length === 4)) {
+       return true;
+    }
+    return false;
+};
