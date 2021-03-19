@@ -1,59 +1,105 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
     <title>Exercícios do Bloco 6.1 - Forms</title>
 </head>
+
 <body>
     <!-- Requisito 1 -->
-    <form action="" method="get" enctype="multipart/form-data">
-        <fieldset>
-            <legend>Dados Pessoais:</legend>
-            <label for="nome">Nome:</label>
-            <input maxlength="40" type="text" name="full-name" id="nome" required>
-            <br>
-            <label for="email">Email:</label>
-            <input maxlength="50" type="text" name="e-mail" id="email" required>
-            <br>
-            <label for="cpf">CPF:</label>
-            <input maxlength="11" type="text" name="cpf" id="cpf" required>
-            <br>
-            <label for="endereco">Endereço:</label>
-            <input maxlength="200" type="text" name="endereco" id="endereco" required>
-            <br>
-            <label for="cidade">Cidade:</label>
-            <input maxlength="28" type="text" name="cidade" id="cidade" required>
-            <br>
-            <label for="estados">Estado:</label>
-            <select name="estados" id="estados" required></select>
-            <br>
-            <label for="complemento">Casa</label>
-            <input type="radio" name="complemento" id="complemento">
-            <label for="complemento">Aparatamento</label>
-            <input type="radio" name="complemento" id="complemento">
-        </fieldset>
-        <br>
+    <form method="GET" class="row g-3 needs-validation" novalidate>
+        <h2>Dados Pessoais:</h2>
+        <div class="col-md-4">
+            <label for="nome" class="form-label">Nome:</label>
+            <input autocomplete="off" class="form-control" placeholder="Nome Completo" maxlength="40" type="text" name="full-name" id="nome" required>
+            <div class="valid-feedback">Parece bom!</div>
+        </div>
+
+        <div class="col-md-4">
+            <label for="email" class="form-label">Email:</label>
+            <div class="input-group has-validation">
+                <span class="input-group-text" id="inputGroupPrepend">@</span>
+               <input autocomplete="off" class="form-control" placeholder="Digite seu email" maxlength="50" type="email" name="e-mail" id="email" required>
+               <div class="invalid-feedback">Por favor, digite o seu e-mail!</div>
+           </div>
+        </div>
+
+        <div class="col-md-4">
+            <label for="cpf" class="form-label">CPF:</label>
+            <input autocomplete="off" class="form-control" placeholder="000.000.000-00" maxlength="11" type="text" name="cpf" id="cpf" required>
+            <div class="invalid-feedback">Por favor, digite o seu CPF!</div>
+        </div>
+
+        <div class="col-md-4">
+            <label for="endereco" class="form-label" >Endereço:</label>
+            <input autocomplete="off" class="form-control" placeholder="Endereço" maxlength="200" type="text" name="endereco" id="endereco" required>
+            <div class="invalid-feedback">Por favor, digite o seu endereço!</div>
+        </div>
+
+        <div class="col-md-4">
+            <label for="cidade" class="form-label">Cidade:</label>
+            <input autocomplete="off" class="form-control" placeholder="Cidade" maxlength="200" type="text" name="cidade" id="cidade" required>
+            <div class="invalid-feedback">Por favor, digite o nome da cidade!</div>
+        </div>
+
+       <div class="col-md-3">
+            <label for="estados" class="form-label">Estado:</label>
+            <select autocomplete="off" class="form-select" name="estados" id="estados" required></select>
+            <div class="invalid-feedback">Selecione um estado válido!</div>
+       </div>
+
+       <div class="col-12">
+          <div class="form-check-inline">
+             <input class="form-check-input" type="radio" name="complemento" id="complemento">
+             <label for="complemento" class="form-check-label">Casa</label>
+          </div>
+
+          <div class="form-check-inline">
+            <input class="form-check-input" type="radio" name="complemento" id="complemento">
+            <label class="form-check-label" for="complemento">Apartamento</label>
+          </div>
+       </div>
+
         <!-- Requisito 2 -->
-        <fieldset>
-            <legend>Dados do Último Emprego:</legend>
-            <label for="curriculo">Resumo do Currículo:</label>
-            <textarea maxlength="1000" name="curriculo" id="curriculo" cols="6" rows="3" required></textarea>
-            <br>
-            <label for="cargo">Cargo:</label>
-            <input maxlength="40" type="text" name="cargo" id="cargo">
-            <br>
-            <label for="descricao">Descrição do Cargo:</label>
-            <input maxlength="500" type="text" name="descricao" id="descricao">
-            <br>
-            <label for="data-text">Data de Início:</label>
-            <input type="text" id="data-text" name="data" required>
-        </fieldset>
+        <h2>Dados do Último Emprego:</h2>
+        <div class="mb-3">
+            <label  class="form-label" for="curriculo">Resumo do Currículo:</label>
+            <textarea class="form-control" maxlength="1000" name="curriculo" id="curriculo" rows="3" required></textarea>
+        </div>
+
+       <div class="col-md-4">
+        <label class="form-label" for="cargo">Cargo:</label>
+        <input class="form-control" autocomplete="off" data-validate-field="position" maxlength="40" type="text" name="cargo" id="cargo">
+        <div class="invalid-feedback">Por favor, digite o seu cargo!</div>
+       </div>
+
+       <div class="col-md-4">
+           <label class="form-label" for="descricao">Descrição do Cargo:</label>
+           <input class="form-control" maxlength="500" autocomplete="off" data-validate-field="description" type="text" name="descricao" id="descricao">
+           <div class="invalid-feedback">Por favor, descreva o seu cargo</div>
+       </div>
+
+       <div class="col-md-4">
+        <label class="form-label" for="data-text">Data de Início:</label>
+        <input class="form-control" type="text" autocomplete="off" id="data-text" placeholder="DD/MM/AAAA" name="data" required> 
+       </div>
+
         <!-- Requisito 3 -->
-        <button class="btn-envio" type="button">Enviar</button>
-        <button class="btn-limpar" type="button">Limpar</button>
+        <div class="col-12">
+            <button class="btn-primay" type="submit">Enviar</button>
+            <button class="btn-limpar" type="button">Limpar</button>
+        </div>
     </form>
     <section class="formulario"></section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

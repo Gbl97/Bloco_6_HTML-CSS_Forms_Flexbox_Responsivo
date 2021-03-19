@@ -40,70 +40,55 @@ function createStates(){
 };
 createStates();
 
-function ValidatingDate(data) {
-    if (data.indexOf('/') === 2 || data.indexOf('/') === 5) {
-     const dia = data.substr(0, 2);
-     console.log(dia);
-     const mes = data.substr(3, 2);
-     console.log(mes);
-     const ano = data.substr(6);
-     console.log(ano);
-
-     if ((dia > 0 && dia <= 31) && (mes > 0 && mes <= 12) && (ano > 0 && ano.length === 4)) {
-        return true;
-     }
-     return false;
-    }
-};
 
 function AnalyzingDate() {
     const getData = document.querySelector('#data-text');
     let data = getData.value;
-    const userData = ValidatingDate(data);
-  
-    if (!userData && data.length) {
+    let userData = moment(data, "DD/MM/YYYY", true);
+    if (!userData.isValid() && data.length) {
         getData.value = '';
         alert('data invalida');
         return false;
     }
-    return userData;
+
   };
 
-// Requisito 3 - Interropendo o fluxo automático do Form
-function checkingForms(event) {
-  event.preventDefault();
-  const getForms = document.querySelectorAll('input');
+// Requisito 3 - Interropendo o fluxo automático do For
 
-  for (let index = 0; index < getForms.length; index += 1) {
-    if (getForms[index].type === 'radio' && !getForms[index].checked) {
-        continue;
-    }
-    const userForms = getForms[index].value;
-    const userData = document.querySelector('.formulario');
-    if (AnalyzingDate()) {
-        const div = document.createElement('div');
-        div.className = 'div-forms';
-        div.innerHTML = userForms;
-        userData.appendChild(div);
-    }
-  }
-}
+// Exemplo de JavaScript inicial para desativar o envio de formulários se houver campos inválidos
+(function () {
+  'use strict'
+
+  // Busque todos os formulários aos quais queremos aplicar estilos de validação de Bootstrap personalizados
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Faça um loop sobre eles e evite o envio
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+          AnalyzingDate()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
 
 //Requisito 4
+const btnClear = document.querySelector('.btn-limpar');
 function clearForms() {
     const userForms = document.querySelectorAll('input');
     const textArea = document.querySelector('#curriculo');
-    const div = document.querySelectorAll('.div-forms');
 
-    for (let index = 0; index < userForms.length && index < div.length; index += 1) {
+    for (let index = 0; index < userForms.length; index += 1) {
        const inputForms = userForms[index];
        inputForms.value = '';
        textArea.value = '';
-       div[index].innerText = '';
     }
 }
-
-const btnSubmit = document.querySelector('.btn-envio');
-const btnClear = document.querySelector('.btn-limpar');
-btnSubmit.addEventListener('click',checkingForms);
 btnClear.addEventListener('click', clearForms);
+
+
