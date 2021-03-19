@@ -11,7 +11,7 @@
 <body>
     <!-- Requisito 1 -->
     <form method="GET" class="row g-3 needs-validation" novalidate>
-        <h2>Dados Pessoais:</h2>
+        <h2 id="title_1">Dados Pessoais:</h2>
         <div class="col-md-4">
             <label for="nome" class="form-label">Nome:</label>
             <input autocomplete="off" class="form-control" placeholder="Nome Completo" maxlength="40" type="text" name="full-name" id="nome" required>
@@ -62,9 +62,9 @@
             <label class="form-check-label" for="complemento">Apartamento</label>
           </div>
        </div>
-
+       
         <!-- Requisito 2 -->
-        <h2>Dados do Último Emprego:</h2>
+        <h2 id="title_2">Dados do Último Emprego:</h2>
         <div class="mb-3">
             <label  class="form-label" for="curriculo">Resumo do Currículo:</label>
             <textarea class="form-control" maxlength="1000" name="curriculo" id="curriculo" rows="3" required></textarea>
@@ -88,9 +88,9 @@
        </div>
 
         <!-- Requisito 3 -->
-        <div class="col-12">
-            <button class="btn-primay" type="submit">Enviar</button>
-            <button class="btn-limpar" type="button">Limpar</button>
+        <div class="col-12 wow">
+            <button class="btn-primay btn-success btn" type="submit">Enviar</button>
+            <button class="btn-limpar btn-secondary btn" type="button">Limpar</button>
         </div>
     </form>
     <section class="formulario"></section>
