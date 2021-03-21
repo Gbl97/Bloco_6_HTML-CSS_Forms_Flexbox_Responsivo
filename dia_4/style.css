@@ -24,13 +24,14 @@
   .menu-container {
     display: flex;
     order: 2;
+    flex-basis: 500px;
+    flex-grow: 1;
   }
   
   .menu-container ul {
     display: flex;
     justify-content: space-around;
     width: 100%;
-    flex-basis: 500px;
   }
   
   .menu-container li {
