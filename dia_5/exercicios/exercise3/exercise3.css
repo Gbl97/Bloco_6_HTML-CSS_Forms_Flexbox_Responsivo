@@ -80,3 +80,56 @@
     padding: 20px;
     height: 1%;
   }
+
+  @media print {
+      #header,
+      #navigation,
+      #footer {
+        display: none;
+    }
+
+    #aside {
+        float: none;
+        display: block;
+    } 
+ }
+
+ @media (max-width: 450px)  {
+
+    #aside {
+        display: none;
+    }
+
+    content {
+        width: 100%;
+    }
+
+    body {
+        padding: 0;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    #navigation {
+        margin-top: 75px;
+    }
+
+    #navigation ul li {
+        display: block;
+    }
+
+    #navigation ul li a {
+        float: none;
+    }
+
+    #header {
+        top: 0;
+        position: fixed;
+        left: 0;
+        width: 100%;
+        height: 35px;
+    }
+
+ }
